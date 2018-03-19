@@ -13,7 +13,7 @@ $monitor = $_POST['monitor'];
 $purchase_date = $_POST['purchase_date'];
     
     
-$con = mysqli_connect('localhost', 'root', 'jen009qm', 'test');
+$con = mysqli_connect('localhost', 'root', 'Digitalbox2018!', 'test');
     
     if($con) {
     
