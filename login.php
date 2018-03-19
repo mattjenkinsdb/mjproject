@@ -14,19 +14,19 @@
         <form action="login.php" method="post">
             <div class="form-group">
             <label for="firstname">First Name</label>
-            <input type="text" name="firstname" class="form-control" autocomplete="off">
+            <input type="text" name="firstname" class="form-control" autocomplete="off" required="yes">
             </div>
             
              <div class="form-group">
                 <label for="surname">Surname</label>
-            <input type="text" name="surname" class="form-control" autocomplete="off">
+            <input type="text" name="surname" class="form-control" autocomplete="off" required="yes">
             </div>
 
         <div class="form-group">
 
             <label for="os">Operating System</label>
 
-            <input list="OS" name ="os" type="text" class="form-control" autocomplete="off">
+            <input list="OS" name ="os" type="text" class="form-control" autocomplete="off" required="yes">
  
             <datalist id="OS">
                 <option value="Windows"/>
@@ -38,14 +38,14 @@
                   
         <div class="form-group">
             <label for="laptop">Laptop</label>
-            <input type="text" name="laptop" class="form-control" autocomplete="off">
+            <input type="text" name="laptop" class="form-control" autocomplete="off" required="yes">
         </div>
 
                 <div class="form-group">
 
             <label for="RAM">RAM</label>
 
-            <input list="RAM" name ="RAM" type="text" class="form-control" autocomplete="off">
+            <input list="RAM" name ="RAM" type="text" class="form-control" autocomplete="off" required="yes">
  
             <datalist id="RAM">
                 <option value="4GB"/>
@@ -57,7 +57,7 @@
 
         <div class="form-group">
             <label for="processor">Processor</label>
-            <input type="text" name="processor" class="form-control" autocomplete="off">
+            <input type="text" name="processor" class="form-control" autocomplete="off" required="yes">
         </div>
 
         <div class="form-group">
