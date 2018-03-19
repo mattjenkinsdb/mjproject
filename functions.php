@@ -1,0 +1,38 @@
+<?php 
+function connect(){
+
+if(isset($_POST['submit'])) {
+   
+$firstname = $_POST['firstname'];
+$surname = $_POST['surname'];
+$os = $_POST['os'];
+$laptop = $_POST['laptop'];
+$RAM = $_POST['RAM'];
+$processor = $_POST['processor'];
+$monitor = $_POST['monitor'];
+$purchase_date = $_POST['purchase_date'];
+    
+    
+$con = mysqli_connect('localhost', 'root', 'jen009qm', 'test');
+    
+    if($con) {
+    
+    echo "Connected";
+    
+    } else {
+    
+    die("Database connection failed");
+    
+    }
+
+    $query = "INSERT INTO newtest(firstname,surname,os,laptop,RAM,processor,monitor,purchase_date)";
+    $query .= "VALUES ('$firstname', '$surname', '$os', '$laptop', '$RAM', '$processor', '$monitor', '$purchase_date')";
+
+    $result = mysqli_query($con, $query);
+
+    if (!$result) {
+
+        die('Query FAILED');
+    }
+    
+}};?>
