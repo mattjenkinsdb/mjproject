@@ -61,7 +61,7 @@
         </div>
 
         <div class="form-group">
-            <label for="monitor">Monitor</label>
+            <label for="monitor">Monitor (Size)</label>
             <input type="text" name="monitor" class="form-control" autocomplete="off">
         </div>
 

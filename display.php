@@ -17,7 +17,7 @@ if (mysqli_connect_errno())
 echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 
-$table_result = mysqli_query($con,"SELECT * FROM newtest");
+$table_result = mysqli_query($con,"SELECT * FROM newtest ORDER BY firstname ASC");
 
 
 echo "<table border='3' width = 150%>
