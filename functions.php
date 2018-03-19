@@ -1,4 +1,13 @@
 <?php 
+
+$con = mysqli_connect('localhost', 'root', 'Digitalbox2018!', 'test');
+    
+    if(!$con) {
+    
+    die("Database connection failed");
+    
+    };
+
 function connect(){
 
 if(isset($_POST['submit'])) {
@@ -13,17 +22,7 @@ $monitor = $_POST['monitor'];
 $purchase_date = $_POST['purchase_date'];
     
     
-$con = mysqli_connect('localhost', 'root', 'Digitalbox2018!', 'test');
-    
-    if($con) {
-    
-    echo "Connected";
-    
-    } else {
-    
-    die("Database connection failed");
-    
-    }
+    global $con;
 
     $query = "INSERT INTO newtest(firstname,surname,os,laptop,RAM,processor,monitor,purchase_date)";
     $query .= "VALUES ('$firstname', '$surname', '$os', '$laptop', '$RAM', '$processor', '$monitor', '$purchase_date')";
@@ -35,4 +34,6 @@ $con = mysqli_connect('localhost', 'root', 'Digitalbox2018!', 'test');
         die('Query FAILED');
     }
     
+
+
 }};?>

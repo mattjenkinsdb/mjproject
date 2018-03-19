@@ -26,11 +26,11 @@
 
             <label for="os">Operating System</label>
 
-                    <select class="form-control">
+           <select name ="os" class="form-control">
                 <option value="Windows">Windows</option>
                 <option value="OSX">OSX</option>
                 <option value="Linux">Linux</option>
-                </select>
+            </select>
         </div>
 
                   
@@ -41,10 +41,9 @@
 
                 <div class="form-group">
 
-            <label for="RAM">RAM</label>
+            <label for="RAM" name="RAM">RAM</label>
 
-               
-            <select class="form-control">
+            <select name="RAM" class="form-control">
                 <option value="4GB">4GB</option>
                 <option value="8GB">8GB</option>
                 <option value="12GB">12GB</option>

@@ -1,19 +1,16 @@
 <?php
 
+include 'functions.php';
+
 $id = $_GET['id'];
 //Connect to DB
-$con=mysqli_connect('localhost', 'root', 'Digitalbox2018!', 'test');
-// Check connection
-if (mysqli_connect_errno())
-{
-echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
+global $con;
 
 $del = "DELETE FROM newtest WHERE id = $id";
 
 if (mysqli_query($con, $del)) {
     mysqli_close($con);
-    header('Location: /display.php'); //If book.php is your main page where you list your all records
+    header('Location: /display.php'); 
     exit;
 } else {
     echo "Error deleting record";

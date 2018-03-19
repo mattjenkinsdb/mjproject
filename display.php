@@ -10,12 +10,9 @@
 <br>
 <?php 
 
-$con=mysqli_connect('localhost', 'root', 'Digitalbox2018!', 'test');
-// Check connection
-if (mysqli_connect_errno())
-{
-echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
+include 'functions.php';
+
+global $con;
 
 $table_result = mysqli_query($con,"SELECT * FROM newtest ORDER BY firstname ASC");
 
