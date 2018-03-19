@@ -1,9 +1,8 @@
-
 <?php
 
 $id = $_GET['id'];
 //Connect to DB
-$con=mysqli_connect('localhost', 'root', 'jen009qm', 'test');
+$con=mysqli_connect('localhost', 'root', 'Digitalbox2018!', 'test');
 // Check connection
 if (mysqli_connect_errno())
 {
