@@ -26,13 +26,11 @@
 
             <label for="os">Operating System</label>
 
-            <input list="OS" name ="os" type="text" class="form-control" autocomplete="off" required="yes">
- 
-            <datalist id="OS">
-                <option value="Windows"/>
-                <option value="OSX"/>
-                <option value="Linux"/>
-            </datalist>
+                    <select class="form-control">
+                <option value="Windows">Windows</option>
+                <option value="OSX">OSX</option>
+                <option value="Linux">Linux</option>
+                </select>
         </div>
 
                   
@@ -45,14 +43,13 @@
 
             <label for="RAM">RAM</label>
 
-            <input list="RAM" name ="RAM" type="text" class="form-control" autocomplete="off" required="yes">
- 
-            <datalist id="RAM">
-                <option value="4GB"/>
-                <option value="8GB"/>
-                <option value="12GB"/>
-                <option value="16GB"/>
-            </datalist>
+               
+            <select class="form-control">
+                <option value="4GB">4GB</option>
+                <option value="8GB">8GB</option>
+                <option value="12GB">12GB</option>
+                <option value="16GB">16GB</option>
+            </select>
         </div>
 
         <div class="form-group">
