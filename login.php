@@ -1,76 +1,66 @@
-<?php require 'functions.php'; connect();?>
+<?php
 
+include 'functions.php';
+
+session_start();
+
+//var_dump($_POST);
+
+if(isset($_POST['submit'])) {
+  
+global $con; 
+
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+$query = "SELECT * FROM `user_login_details` WHERE username='$username' and password='$password'";
+//header( 'Location: form.php' );
+
+$result = mysqli_query($con,$query)or die(mysqli_error());
+$num_row = mysqli_num_rows($result);
+$row=mysqli_fetch_array($result);
+if( $num_row ==1 )
+     {
+ $_SESSION['id']=$row['id'];
+ header("Location: form.php");
+ echo 'OMG IT WORKED';
+ exit;
+  }
+  else
+     {
+ echo 'FAIL';
+  }
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
-<head><br>
-    <meta charset="UTF-8">
+<head>
+    
     <title>Document</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
 <body>
+<br>
 <div class="container">
     
     <div class="col-sm-6">
         <form action="login.php" method="post">
             <div class="form-group">
-            <label for="firstname">First Name</label>
-            <input type="text" name="firstname" class="form-control" autocomplete="off" required="yes">
+            <label for="username">Username</label>
+            <input type="text" name="username" class="form-control" required="yes">
             </div>
             
              <div class="form-group">
-                <label for="surname">Surname</label>
-            <input type="text" name="surname" class="form-control" autocomplete="off" required="yes">
+                <label                                                                  for="password">Password</label>
+            <input type="password" name="password" class="form-control">
             </div>
-
-        <div class="form-group">
-
-            <label for="os">Operating System</label>
-
-           <select name ="os" class="form-control">
-                <option value="Windows">Windows</option>
-                <option value="OSX">OSX</option>
-                <option value="Linux">Linux</option>
-            </select>
-        </div>
-
-                  
-        <div class="form-group">
-            <label for="laptop">Laptop</label>
-            <input type="text" name="laptop" class="form-control" autocomplete="off" required="yes">
-        </div>
-
-                <div class="form-group">
-
-            <label for="RAM" name="RAM">RAM</label>
-
-            <select name="RAM" class="form-control">
-                <option value="4GB">4GB</option>
-                <option value="8GB">8GB</option>
-                <option value="12GB">12GB</option>
-                <option value="16GB">16GB</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="processor">Processor</label>
-            <input type="text" name="processor" class="form-control" autocomplete="off" required="yes">
-        </div>
-
-        <div class="form-group">
-            <label for="monitor">Monitor (Size)</label>
-            <input type="text" name="monitor" class="form-control" autocomplete="off">
-        </div>
-
-        <div class="form-group">
-            <label for="purchase_date">Date of Purchase</label>
-            <input type="Date" name="purchase_date" class="form-control" autocomplete="off">
-        </div>
-
+            
              <input class="btn btn-primary" type="submit" name="submit" value="Submit">
-             <a href="/display.php" class="btn btn-default">Show Entries</a>
-            <!-- <input class="btn btn-primary" type="submit" name="submit" value="Show Entries">-->
         </form>
     </div>
+
 </div>
 </body>
 </html>

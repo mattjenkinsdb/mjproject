@@ -34,6 +34,9 @@ $purchase_date = $_POST['purchase_date'];
         die('Query FAILED');
     }
     
+}};
 
-
-}};?>
+function check_session(){
+if(!isset($_SESSION['id'])){
+    die(header("location: login.php"));
+}};

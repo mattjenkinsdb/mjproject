@@ -50,7 +50,9 @@ echo "</table>";
 <br>
 
  <a href="/login.php" class="btn btn-default">Return</a>
- <a href="/display.php" class="btn btn-default">Refresh</a>
+ <a href="/display.php" class="btn btn-default">Refresh</a><form method="post">
+    
+
             <!-- <input class="btn btn-primary" type="submit" name="submit" 
 </body></html> -->
 </div>
