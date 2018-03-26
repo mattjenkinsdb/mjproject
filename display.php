@@ -12,6 +12,9 @@
 
 include 'functions.php';
 
+//session_start(); 
+//check_session();
+
 global $con;
 
 $table_result = mysqli_query($con,"SELECT * FROM newtest ORDER BY firstname ASC");
@@ -49,7 +52,7 @@ echo "</table>";
 ?>
 <br>
 
- <a href="/login.php" class="btn btn-default">Return</a>
+ <a href="/form.php" class="btn btn-default">Return</a>
  <a href="/display.php" class="btn btn-default">Refresh</a><form method="post">
     
 

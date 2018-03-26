@@ -1,4 +1,5 @@
-<?php require 'functions.php'; connect(); session_start(); check_session(); ?>
+<?php require 'functions.php'; connect();// check_session(); 
+var_dump($_POST);?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +12,7 @@
 <div class="container">
     
     <div class="col-sm-6">
-        <form action="login.php" method="post">
+        <form action="form.php" method="post">
             <div class="form-group">
             <label for="firstname">First Name</label>
             <input type="text" name="firstname" class="form-control" autocomplete="off" required="yes">

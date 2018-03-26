@@ -2,36 +2,9 @@
 
 include 'functions.php';
 
-session_start();
-
 //var_dump($_POST);
 
-if(isset($_POST['submit'])) {
-  
-global $con; 
-
-$username = $_POST['username'];
-$password = $_POST['password'];
-
-$query = "SELECT * FROM `user_login_details` WHERE username='$username' and password='$password'";
-//header( 'Location: form.php' );
-
-$result = mysqli_query($con,$query)or die(mysqli_error());
-$num_row = mysqli_num_rows($result);
-$row=mysqli_fetch_array($result);
-if( $num_row ==1 )
-     {
- $_SESSION['id']=$row['id'];
- header("Location: form.php");
- echo 'OMG IT WORKED';
- exit;
-  }
-  else
-     {
- echo 'FAIL';
-  }
-
-}
+get_credentials();
 
 ?>
 <!DOCTYPE html>
