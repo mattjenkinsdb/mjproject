@@ -68,16 +68,8 @@ var_dump($_POST);
             <input type="Date" name="purchase_date" class="form-control" autocomplete="off">
         </div>
 
-        <div class="form-group">
-            <label for="image">Upload Image</label>
-         <input type="file" name="image" id="image">
-               <br>
-
-        </div>
-
              <input class="btn btn-primary" type="submit" name="submit" value="Submit">
              <a href="/display.php" class="btn btn-default">Show Entries</a> 
-             <a href="/logout.php" class="btn btn-default">Logout</a>
             <!-- <input class="btn btn-primary" type="submit" name="submit" value="Show Entries">-->
         </form>
     </div>

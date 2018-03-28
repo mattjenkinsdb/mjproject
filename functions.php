@@ -52,12 +52,13 @@ $RAM = $_POST['RAM'];
 $processor = $_POST['processor'];
 $monitor = $_POST['monitor'];
 $purchase_date = $_POST['purchase_date'];
+$image = $_FILES['image']['name'];
     
     
     global $con;
 
-    $query = "INSERT INTO newtest(firstname,surname,os,laptop,RAM,processor,monitor,purchase_date)";
-    $query .= "VALUES ('$firstname', '$surname', '$os', '$laptop', '$RAM', '$processor', '$monitor', '$purchase_date')";
+    $query = "UPDATE newtest(firstname,surname,os,laptop,RAM,processor,monitor,purchase_date,image)";
+    $query .= "VALUES ('$firstname', '$surname', '$os', '$laptop', '$RAM', '$processor', '$monitor', '$purchase_date', '$image')";
 
     $result = mysqli_query($con, $query);
 
@@ -68,7 +69,43 @@ $purchase_date = $_POST['purchase_date'];
     
 }};
 
+function edit(){
+
+if(isset($_POST['submit'])) {
+   
+$firstname = $_POST['firstname'];
+$surname = $_POST['surname'];
+$os = $_POST['os'];
+$laptop = $_POST['laptop'];
+$RAM = $_POST['RAM'];
+$processor = $_POST['processor'];
+$monitor = $_POST['monitor'];
+$purchase_date = $_POST['purchase_date'];
+    
+    
+    global $con;
+
+    $query = "INSERT INTO newtest(firstname,surname,os,laptop,RAM,processor,monitor,purchase_date,image)";
+    $query .= "VALUES ('$firstname', '$surname', '$os', '$laptop', '$RAM', '$processor', '$monitor', '$purchase_date', '$image')";
+
+    $result = mysqli_query($con, $query);
+
+    if (!$result) {
+
+        die('Query FAILED');
+    }
+    
+}};
+
+function upload(){
+if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+        echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }    
+};
+
 function check_session(){
-if(!isset($_SESSION['username'])){
+if(!isset($_SESSION['id'])){
     die(header("location: login.php"));
 }};

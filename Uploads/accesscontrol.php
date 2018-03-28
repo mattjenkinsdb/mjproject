@@ -1,4 +1,7 @@
 <?php // accesscontrol.php
+
+
+//NOT BEING USED
 include 'functions.php';
 
 session_start();
