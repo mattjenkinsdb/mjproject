@@ -57,7 +57,7 @@ $image = $_FILES['image']['name'];
     
     global $con;
 
-    $query = "UPDATE newtest(firstname,surname,os,laptop,RAM,processor,monitor,purchase_date,image)";
+    $query = "INSERT INTO newtest(firstname,surname,os,laptop,RAM,processor,monitor,purchase_date,image)";
     $query .= "VALUES ('$firstname', '$surname', '$os', '$laptop', '$RAM', '$processor', '$monitor', '$purchase_date', '$image')";
 
     $result = mysqli_query($con, $query);
@@ -81,12 +81,12 @@ $RAM = $_POST['RAM'];
 $processor = $_POST['processor'];
 $monitor = $_POST['monitor'];
 $purchase_date = $_POST['purchase_date'];
+$id = $_GET['id'];
     
     
     global $con;
 
-    $query = "INSERT INTO newtest(firstname,surname,os,laptop,RAM,processor,monitor,purchase_date,image)";
-    $query .= "VALUES ('$firstname', '$surname', '$os', '$laptop', '$RAM', '$processor', '$monitor', '$purchase_date', '$image')";
+    $query = "UPDATE newtest SET(firstname='$surname', surname='$surname', os='$os', laptop='$laptop', RAM='$RAM', processor='$processor', monitor='$monitor'. purchase_date='$purchase_date' WHERE id='$id')";
 
     $result = mysqli_query($con, $query);
 
@@ -104,8 +104,8 @@ if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
         echo "Sorry, there was an error uploading your file.";
     }    
 };
-
+/*
 function check_session(){
 if(!isset($_SESSION['id'])){
     die(header("location: login.php"));
-}};
+}};*/

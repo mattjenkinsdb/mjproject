@@ -1,5 +1,57 @@
-<?php require 'functions.php'; connect();// check_session(); 
-var_dump($_POST);
+<?php require 'functions.php'; // check_session();
+
+if(isset($_POST['submit'])) {
+   
+$firstname = $_POST['firstname'];
+$surname = $_POST['surname'];
+$os = $_POST['os'];
+$laptop = $_POST['laptop'];
+$RAM = $_POST['RAM'];
+$processor = $_POST['processor'];
+$monitor = $_POST['monitor'];
+$purchase_date = $_POST['purchase_date'];
+$id = $_POST['id'];
+    
+    
+    global $con;
+
+    $query = "UPDATE newtest SET firstname='$firstname', surname='$surname', os='$os', laptop='$laptop', RAM='$RAM', processor='$processor', monitor='$monitor', purchase_date='$purchase_date' WHERE id='$id'";
+
+    $result = mysqli_query($con, $query);
+
+    if (!$result) {
+
+        die('Query FAILED');
+    }
+    else {
+
+    header('Location: /display.php'); 
+    
+    }
+}
+
+
+$id = $_GET['id'];
+
+global $con;
+
+$display = mysqli_query($con, "SELECT * FROM newtest WHERE id=$id");
+
+$row = mysqli_fetch_array($display);
+
+if($row){
+
+$firstname = $row['firstname']; 
+$surname = $row['surname'];
+$os = $row['os'];
+$laptop = $row['laptop'];
+$RAM = $row['RAM'];
+$processor = $row['processor'];
+$monitor = $row['monitor'];
+$purchase_date = $row['purchase_date'];
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -13,15 +65,20 @@ var_dump($_POST);
 <div class="container">
     
     <div class="col-sm-6">
-        <form action="form.php" method="post" enctype="multipart/form-data">
+        <form action="edit.php" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+            <label for="id"></label>
+            <input type="hidden" name="id" class="form-control" required="yes" value="<?php echo $id; ?>"/>
+            </div>
+            
             <div class="form-group">
             <label for="firstname">First Name</label>
-            <input type="text" name="firstname" class="form-control" autocomplete="off" required="yes">
+            <input type="text" name="firstname" class="form-control" required="yes" value="<?php echo $firstname; ?>"/>
             </div>
             
              <div class="form-group">
                 <label for="surname">Surname</label>
-            <input type="text" name="surname" class="form-control" autocomplete="off" required="yes">
+            <input type="text" name="surname" class="form-control" autocomplete="off" required="yes" value="<?php echo $surname; ?>">
             </div>
 
         <div class="form-group">
@@ -38,7 +95,7 @@ var_dump($_POST);
                   
         <div class="form-group">
             <label for="laptop">Laptop</label>
-            <input type="text" name="laptop" class="form-control" autocomplete="off" required="yes">
+            <input type="text" name="laptop" class="form-control" autocomplete="off" required="yes" value="<?php echo $laptop; ?>">
         </div>
 
                 <div class="form-group">
@@ -55,17 +112,17 @@ var_dump($_POST);
 
         <div class="form-group">
             <label for="processor">Processor</label>
-            <input type="text" name="processor" class="form-control" autocomplete="off" required="yes">
+            <input type="text" name="processor" class="form-control" autocomplete="off" required="yes" value="<?php echo $processor; ?>">
         </div>
 
         <div class="form-group">
             <label for="monitor">Monitor (Size)</label>
-            <input type="text" name="monitor" class="form-control" autocomplete="off">
+            <input type="text" name="monitor" class="form-control" autocomplete="off" value="<?php echo $monitor; ?>">
         </div>
 
         <div class="form-group">
             <label for="purchase_date">Date of Purchase</label>
-            <input type="Date" name="purchase_date" class="form-control" autocomplete="off">
+            <input type="Date" name="purchase_date" class="form-control" autocomplete="off" value="<?php echo $purchase_date; ?>">
         </div>
 
              <input class="btn btn-primary" type="submit" name="submit" value="Submit">
