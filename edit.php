@@ -1,5 +1,27 @@
 <?php require 'functions.php'; // check_session();
 
+$id = $_GET['id'];
+
+global $con;
+
+$display = mysqli_query($con, "SELECT * FROM newtest WHERE id=$id");
+
+$row = mysqli_fetch_array($display);
+
+if($row){
+
+$firstname = htmlspecialchars($row['firstname']); 
+$surname = htmlspecialchars($row['surname']);
+$os = htmlspecialchars($row['os']);
+$laptop = htmlspecialchars($row['laptop']);
+$RAM = htmlspecialchars($row['RAM']);
+$processor = htmlspecialchars($row['process)or']);
+$monitor = htmlspecialchars($row['monitor']);
+$purchase_date = htmlspecialchars($row['purchase_date']);
+}
+
+
+
 if(isset($_POST['submit'])) {
    
 $firstname = $_POST['firstname'];
@@ -26,31 +48,9 @@ $id = $_POST['id'];
     else {
 
     header('Location: /display.php'); 
-    
+
     }
 }
-
-
-$id = $_GET['id'];
-
-global $con;
-
-$display = mysqli_query($con, "SELECT * FROM newtest WHERE id=$id");
-
-$row = mysqli_fetch_array($display);
-
-if($row){
-
-$firstname = $row['firstname']; 
-$surname = $row['surname'];
-$os = $row['os'];
-$laptop = $row['laptop'];
-$RAM = $row['RAM'];
-$processor = $row['processor'];
-$monitor = $row['monitor'];
-$purchase_date = $row['purchase_date'];
-}
-
 
 ?>
 

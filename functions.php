@@ -44,14 +44,14 @@ function connect(){
 
 if(isset($_POST['submit'])) {
    
-$firstname = $_POST['firstname'];
-$surname = $_POST['surname'];
-$os = $_POST['os'];
-$laptop = $_POST['laptop'];
-$RAM = $_POST['RAM'];
-$processor = $_POST['processor'];
-$monitor = $_POST['monitor'];
-$purchase_date = $_POST['purchase_date'];
+$firstname = htmlspecialchars($_POST['firstname']);
+$surname = htmlspecialchars($_POST['surname']);
+$os = htmlspecialchars($_POST['os']);
+$laptop = htmlspecialchars($_POST['laptop']);
+$RAM = htmlspecialchars($_POST['RAM']);
+$processor = htmlspecialchars($_POST['processor']);
+$monitor = htmlspecialchars($_POST['monitor']);
+$purchase_date = htmlspecialchars($_POST['purchase_date']);
 $image = $_FILES['image']['name'];
     
     
@@ -71,9 +71,29 @@ $image = $_FILES['image']['name'];
 
 function edit(){
 
+global $con;
+
+$display = mysqli_query($con, "SELECT * FROM newtest WHERE id=$id");
+
+$row = mysqli_fetch_array($display);
+
+if($row){
+
+$firstname = $row['firstname']; 
+$surname = $row['surname'];
+$os = $row['os'];
+$laptop = $row['laptop'];
+$RAM = $row['RAM'];
+$processor = $row['processor'];
+$monitor = $row['monitor'];
+$purchase_date = $row['purchase_date'];
+}
+
+
+
 if(isset($_POST['submit'])) {
    
-$firstname = $_POST['firstname'];
+$firstname = htmlspecialchars($_POST['firstname']);
 $surname = $_POST['surname'];
 $os = $_POST['os'];
 $laptop = $_POST['laptop'];
@@ -81,12 +101,12 @@ $RAM = $_POST['RAM'];
 $processor = $_POST['processor'];
 $monitor = $_POST['monitor'];
 $purchase_date = $_POST['purchase_date'];
-$id = $_GET['id'];
+$id = $_POST['id'];
     
     
     global $con;
 
-    $query = "UPDATE newtest SET(firstname='$surname', surname='$surname', os='$os', laptop='$laptop', RAM='$RAM', processor='$processor', monitor='$monitor'. purchase_date='$purchase_date' WHERE id='$id')";
+    $query = "UPDATE newtest SET firstname='$firstname', surname='$surname', os='$os', laptop='$laptop', RAM='$RAM', processor='$processor', monitor='$monitor', purchase_date='$purchase_date' WHERE id='$id'";
 
     $result = mysqli_query($con, $query);
 
@@ -94,7 +114,11 @@ $id = $_GET['id'];
 
         die('Query FAILED');
     }
-    
+    else {
+
+    header('Location: /display.php'); 
+
+    }
 }};
 
 function upload(){

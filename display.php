@@ -50,14 +50,14 @@ echo "<table border='3' width = 150%>
 while($row = mysqli_fetch_array($table_result))
 {
 echo "<tr>";
-echo "<td>" . $row['firstname'] . "</td>";
-echo "<td>" . $row['surname'] . "</td>";
-echo "<td>" . $row['os'] . "</td>";
-echo "<td>" . $row['laptop'] . "</td>";
-echo "<td>" . $row['RAM'] . "</td>";
-echo "<td>" . $row['processor'] . "</td>";
-echo "<td>" . $row['monitor'] . " inch </td>";
-echo "<td>" . $row['purchase_date'] . "</td>";
+echo "<td>" . htmlspecialchars($row['firstname']) . "</td>";
+echo "<td>" . htmlspecialchars($row['surname']) . "</td>";
+echo "<td>" . htmlspecialchars($row['os']) . "</td>";
+echo "<td>" . htmlspecialchars($row['laptop']) . "</td>";
+echo "<td>" . htmlspecialchars($row['RAM']) . "</td>";
+echo "<td>" . htmlspecialchars($row['processor']) . "</td>";
+echo "<td>" . htmlspecialchars($row['monitor']) . " inch </td>";
+echo "<td>" . htmlspecialchars($row['purchase_date']) . "</td>";
 //echo "<td>" . '<img src=/Uploads/"', $imgname .'" >'."</td>";
 //echo "<td>" . '<img src="'. $target .'" >'."</td>";
 //echo "<td>" . '<img src="'. $row['image'] .'" >'."</td>";
