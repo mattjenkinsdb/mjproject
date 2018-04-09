@@ -21,8 +21,6 @@ $_SESSION['password'] = $password;
 global $con;
 
 $query = "SELECT * FROM `user_login_details` WHERE username='$username' and password='$password'";
-//header( 'Location: form.php' );
-
 $result = mysqli_query($con,$query)or die(mysqli_error());
 $num_row = mysqli_num_rows($result);
 $row=mysqli_fetch_array($result);
@@ -70,26 +68,6 @@ $image = $_FILES['image']['name'];
 }};
 
 function edit(){
-
-global $con;
-
-$display = mysqli_query($con, "SELECT * FROM newtest WHERE id=$id");
-
-$row = mysqli_fetch_array($display);
-
-if($row){
-
-$firstname = $row['firstname']; 
-$surname = $row['surname'];
-$os = $row['os'];
-$laptop = $row['laptop'];
-$RAM = $row['RAM'];
-$processor = $row['processor'];
-$monitor = $row['monitor'];
-$purchase_date = $row['purchase_date'];
-}
-
-
 
 if(isset($_POST['submit'])) {
    

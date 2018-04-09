@@ -1,4 +1,4 @@
-<?php require 'functions.php'; // check_session();
+<?php require 'functions.php'; edit(); // check_session();
 
 $id = $_GET['id'];
 
@@ -15,42 +15,12 @@ $surname = htmlspecialchars($row['surname']);
 $os = htmlspecialchars($row['os']);
 $laptop = htmlspecialchars($row['laptop']);
 $RAM = htmlspecialchars($row['RAM']);
-$processor = htmlspecialchars($row['process)or']);
+$processor = htmlspecialchars($row['processor']);
 $monitor = htmlspecialchars($row['monitor']);
 $purchase_date = htmlspecialchars($row['purchase_date']);
 }
 
 
-
-if(isset($_POST['submit'])) {
-   
-$firstname = $_POST['firstname'];
-$surname = $_POST['surname'];
-$os = $_POST['os'];
-$laptop = $_POST['laptop'];
-$RAM = $_POST['RAM'];
-$processor = $_POST['processor'];
-$monitor = $_POST['monitor'];
-$purchase_date = $_POST['purchase_date'];
-$id = $_POST['id'];
-    
-    
-    global $con;
-
-    $query = "UPDATE newtest SET firstname='$firstname', surname='$surname', os='$os', laptop='$laptop', RAM='$RAM', processor='$processor', monitor='$monitor', purchase_date='$purchase_date' WHERE id='$id'";
-
-    $result = mysqli_query($con, $query);
-
-    if (!$result) {
-
-        die('Query FAILED');
-    }
-    else {
-
-    header('Location: /display.php'); 
-
-    }
-}
 
 ?>
 
@@ -127,7 +97,6 @@ $id = $_POST['id'];
 
              <input class="btn btn-primary" type="submit" name="submit" value="Submit">
              <a href="/display.php" class="btn btn-default">Show Entries</a> 
-            <!-- <input class="btn btn-primary" type="submit" name="submit" value="Show Entries">-->
         </form>
     </div>
 </div>
